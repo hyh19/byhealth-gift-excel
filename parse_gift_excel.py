@@ -110,9 +110,9 @@ def buildRowDict(worksheet, row_index):
 # 函数接口：修改数据库记录
 # ------------------------------------------------------------------------------
 # 插入一条新的库存记录
-def insertStock(cur, total):
+def insertStock(cursor, total):
 	insert_stock = ("INSERT INTO product_stock (total_count) VALUES (%(total_count)s)")
-	cur.execute(insert_stock, {'total_count': total})
+	cursor.execute(insert_stock, {'total_count': total})
 
 # 增加库存
 def updateStockRow(cursor, stock_id, delta):
@@ -143,7 +143,7 @@ def insertGiftRow(cursor, gift_xls):
 	                   "VALUES (%(gift_id)s, %(prd_code)s, %(prd_name)s, %(origin_point)s, %(type)s, %(ex_times)s, %(start_time)s, %(end_time)s, %(exchange_type)s, %(seq_no)s, %(module)s, %(description)s, %(store_scope)s, %(card_id)s, %(is_del)s, %(month_exchange)s)")
 		cursor.execute(insert_gift, gift_xls)
 
-		# 修改礼物记录里的库存ID
+		# 修改礼品记录里的库存ID
 		update_gift = "UPDATE product SET stock_id = %(stock_id)s WHERE id = %(id)s"
 		cursor.execute(update_gift, {'stock_id': cursor.lastrowid, 'id': cursor.lastrowid})
 
