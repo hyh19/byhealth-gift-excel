@@ -12,6 +12,7 @@ Python模块安装：
 - 该脚本目前只支持Excel 2010（后缀名为xlsx），如果是老版本（如Excel 1997/2003/2007），请先转化为2010版本。
 - Excel表格请严格按照模板来配置
 - Excel单元格（数据部分）不可以留空
+- 数据库访问信息在脚本内修改
 
 [1]:	https://pypi.python.org/pypi/openpyxl
 [2]:	https://dev.mysql.com/downloads/connector/python/
